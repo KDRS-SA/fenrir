@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	
+	<class name="no.arkivlab.n4ton5.models.n4.Arkiv" table="arkiv">
+		<meta attribute="class-description">This is a basic mapping of an generic N4 ARKIV
+			table to a Noark 4 Entity</meta>
+		
+		<id name="AR_ARKIV" type="string" column="ar_arkiv"/>
+		<property name="AR_BETEGN" column="ar_betegn" type="string" />
+		<property name="AR_FRADATO" column="ar_fradato" type="date" />
+		<property name="AR_TILDATO" column="ar_tildato" type="date" />
+		<property name="AR_MERKNAD" column="ar_merknad" type="text"/>
+	</class>
+	
+	<class name="no.arkivlab.n4ton5.models.n4.Arkivdel" table="arkivdel">
+		<meta attribute="class-description">This is a basic mapping of a generic N4 ARKIVDEL
+			table to a Noark 4 Entity</meta>
+		
+		<id name="AD_ARKDEL" column="ad_arkdel" type="string" />
+		<property name="AD_BETEGN" column="ad_betegn" type="string" />
+		<property name="AD_ARKIV" column="ad_arkiv" type="string" />
+		<property name="AD_ASTATUS" column="ad_astatus" type="string" />
+		<property name="AD_PERIODE" column="ad_periode" type="integer" />
+		<property name="AD_PRIMNOK" column="ad_primnok" type="string" />
+		<property name="AD_BSKODE" column="ad_bskode" type="string" />
+		<property name="AD_FORTS" column="ad_forts" type="string" />
+		<property name="AD_PAPIR" column="ad_papir" type="boolean" />
+		<property name="AD_ELDOK" column="ad_eldok" type="boolean" />
+		<property name="AD_FRADATO" column="ad_fradato" type="date" />
+		<property name="AD_TILDATO" column="ad_tildato" type="date" />
+		<property name="AD_MERKNAD" column="ad_merknad" type="text" />
+		
+	</class>
+	
+	
+	<class name="no.arkivlab.n4ton5.models.n4.Ordnprins" table="ordnprins">
+		<meta attribute="class-description">
+			This is a basic mapping of a generic N4 Ordningsprinsipptable to a Noark 4 Entity
+		</meta>
+		
+		
+		<id name="OP_ORDNPRI" column="op_ordnpri" type="string" />
+		<property name="OP_BETEGN" column="op_betegn" type="string" />
+		<property name="OP_LTEKST" column="op_ltekst" type="string" />
+		<property name="OP_TYPE" column="op_type" type="string" />
+		<property name="OP_OVBESK" column="op_ovbesk" type="boolean" />
+		<property name="OP_KLFLAGG" column="op_klflagg" type="boolean" />
+		<property name="OP_SIFLAGG" column="op_siflagg" type="boolean" />
+		<property name="OP_EVOK" column="op_evok" type="boolean" />
+		<property name="OP_EVAUTO" column="op_evauto" type="boolean" />
+		<property name="OP_SEKFLAGG" column="op_sekflagg" type="boolean" />
+		<property name="OP_FRADATO" column="op_fradato" type="date" />
+		<property name="OP_TILDATO" column="op_tildato" type="date" />
+		<property name="OP_TGKODE" column="op_tgkode" type="string" />
+		
+	</class>
+	
+	
+	<class name="no.arkivlab.n4ton5.models.n4.Ordnverdi" table="ordnverdi">
+		<meta attribute="class-description">
+			This is a basic mapping of a generic N4 Ordningsprinsipptable to a Noark 4 Entity
+		</meta>
+		
+		<composite-id>
+			<key-property name="OV_ORDNPRI" column="ov_ordnpri" type="string" />
+			<key-property name="OV_ORDNVER" column="ov_ordnver" type="string" />
+		</composite-id>
+		
+		<property name="OV_FAR" column="ov_far" type="string" />
+		<property name="OV_BESKR" column="ov_beskriv" type="text" />
+		<property name="OV_REGFLAGG" column="ov_regflagg" type="boolean" />
+		<property name="OV_SEKFLAGG" column="ov_sekflagg" type="boolean" />
+		
+	</class>
+	
+	
+	<class name="no.arkivlab.n4ton5.models.n4.NoarkSak" table="noarksak">
+		<meta attribute="class-description">This is a basic mapping of  a generic N4 NOARKSAK
+			table to a Noark 4 Entity</meta>
+		
+		<id name="SA_ID" column="sa_id" type="integer" />
+		<property name="SA_SAAR" column="sa_saar" type="integer" />
+		<property name="SA_SEKNR" column="sa_seknr" type="integer" />
+		<property name="SA_PAPIR" column="sa_papir" type="boolean" />
+		<property name="SA_DATO" column="sa_dato" type="date" />
+		<property name="SA_TITTEL" column="sa_tittel" type="string" />
+		<property name="SA_U1" column="sa_u1" type="boolean" />
+		<property name="SA_STATUS" column="sa_status" type="string" />
+		<property name="SA_ARKDEL" column="sa_arkdel" type="string" />
+		<property name="SA_TYPE" column="sa_type" type="string" />
+		<property name="SA_JENHET" column="sa_jenhet" type="string" />
+		<property name="SA_ADMID" column="sa_admid" type="integer" />
+		<property name="SA_ANSVID" column="sa_ansvid" type="integer" />
+		<property name="SA_TGKODE" column="sa_tgkode" type="string" />
+		<property name="SA_UOFF" column="sa_uoff" type="string" />
+		<property name="SA_TGGRUPPE" column="sa_tggruppe" type="integer" />
+		
+	</class>
+	
+	
+	<class name="no.arkivlab.n4ton5.models.n4.JournPst" table="journpost">
+		<meta attribute="class-description">This is a basic mapping of a generic N4 Journalpost table to a Noark 4 Entity</meta>
+		
+		<id name="JP_ID" column="jp_id" type="integer" />
+		<property name="JP_JAAR" column="jp_jaar" type="integer" />
+		<property name="JP_SEKNR" column="jp_seknr" type="integer" />
+		<property name="JP_SAID" column="jp_said" type="integer" />
+		<property name="JP_JDATO" column="jp_jdato" type="date" />
+		<property name="JP_JPOSTNR" column="jp_jpostnr" type="integer" />
+		<property name="JP_NDOKTYPE" column="jp_ndoktype" type="string" />
+		<property name="JP_DOKDATO" column="jp_dokdato" type="date" />
+		<property name="JP_UDATERT" column="jp_udatert" type="boolean" />
+		<property name="JP_STATUS" column="jp_status" type="string" />
+		<property name="JP_INNHOLD" column="jp_innhold" type="text" />
+		<property name="JP_U1" column="jp_u1" type="boolean" />
+		<property name="JP_AVSKDATO" column="jp_avskdato" type="date" />
+		<property name="JP_EKSPDATO" column="jp_ekspdato" type="date" />
+		<property name="JP_FORFDATO" column="jp_forfdato" type="date" />
+		<property name="JP_TGKODE" column="jp_tgkode" type="string" />
+		<property name="JP_UOFF" column="jp_uoff" type="string" />
+		<property name="JP_OVDATO" column="jp_ovdato" type="date" />
+		<property name="JP_AGDATO" column="jp_agdato" type="date" />
+		<property name="JP_AGKODE" column="jp_agkode" type="string" />
+		<property name="JP_TGGRUPPE" column="jp_tggruppe" type="integer" />
+		<property name="JP_SAKSDEL" column="jp_saksdel" type="string" />
+		<property name="JP_U2" column="jp_u2" type="boolean" />
+		<property name="JP_ARKDEL" column="jp_arkdel" type="string" />
+		<property name="JP_PAPIR" column="jp_papir" type="boolean" />
+		<property name="JP_TLKODE" column="jp_tlkode" type="string" />
+	</class>
+	
+	
+	<class name="no.arkivlab.n4ton5.models.n4.DokBesk" table="dokbeskriv">
+		<meta attribute="class-description">This is a basic mapping of a generic N4 DokBesk
+			table to a Noark 4 Entity</meta>
+		
+		<id name="DB_DOKID" column="db_dokid" type="integer" />
+		<property name="DB_KATEGORI" column="db_kategori" type="string" />
+		<property name="DB_TITTEL" column="db_tittel" type="text" />
+		<property name="DB_PAPIR" column="db_papir" type="boolean" />
+		<property name="DB_LOKPAPIR" column="db_lokpapir" type="text" />
+		<property name="DB_STATUS" column="db_status" type="string" />
+		<property name="DB_UTARBAV" column="db_utarbav" type="integer" />
+		<property name="DB_TGKODE" column="db_tgkode" type="string" />
+		<property name="DB_UOFF" column="db_uoff" type="string" />
+		<property name="DB_AGDATO" column="db_agdato" type="date" />
+		<property name="DB_AGKODE" column="db_agkode" type="string" />
+		<property name="DB_TGGRUPPE" column="db_tggruppe" type="integer" />
+		
+		<one-to-one name="dokLink" class="no.arkivlab.n4ton5.models.n4.DokLink"/>
+	</class>
+	
+	
+	<class name="no.arkivlab.n4ton5.models.n4.DokLink" table="doklink">
+		<meta attribute="class-description">This is a basic mapping of a genericN4 Doklink
+			table to a Noark 4 Entity</meta>
+		
+		<id name="DL_JPID" column="dl_jpid" type="int" />
+		<property name="DL_RNR" column="dl_rnr" type="int" />
+		<property name="DL_DOKID" column="dl_dokid" type="int" />
+		<property name="DL_TYPE" column="dl_type" type="string" />
+		<property name="DL_TKDATO" column="dl_tkdato" type="date" />
+		<property name="DL_TKAV" column="dl_tkav" type="int" />
+	</class>
+	
+	
+	<class name="no.arkivlab.n4ton5.models.n4.DokVers" table="dokversjon">
+		<meta attribute="class-description">This is a basic mapping of a genericN4 DokVers
+			table to a Noark 4 Entity</meta>
+			
+		<id name="VE_DOKID" column="ve_dokid" type="integer" />
+		<property name="VE_VERSJON" column="ve_versjon" type="integer" />
+		<property name="VE_VARIANT" column="ve_variant" type="string" />
+		<property name="VE_AKTIV" column="ve_aktiv" type="boolean" />
+		<property name="VE_DOKFORMAT" column="ve_dokformat" type="string" />
+		<property name="VE_REGAV" column="ve_regav" type="integer" />
+		<property name="VE_OPPBEDATO" column="ve_oppbedato" type="date" />
+		<property name="VE_TGKODE" column="ve_tgkode" type="string" />
+		<property name="VE_ARKMERK" column="ve_arkmerk" type="text" />
+		<property name="VE_LAGRENH" column="ve_lagrenh" type="string" />
+		<property name="VE_FILREF" column="ve_filref" type="text" />
+	</class>
+</hibernate-mapping>

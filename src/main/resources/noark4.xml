@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<kdrs-toolbox-uttrekk>
+	<projectType>noark 4 to noark 5 conversion</projectType>
+	
+	<databases>
+		<sourceDatabase>
+			<username></username>
+			<password></password>
+			<database>noark4</database>
+			<connector>mysql</connector>
+			<host></host>
+			<port>3306</port>
+			<connector>mysql</connector>
+			<connectionType>jdbc</connectionType>
+			<schemaOptions>validate</schemaOptions>
+		</sourceDatabase>
+
+		<destinationDatabase>
+			<username></username>
+			<password></password>
+			<database></database>
+			<connector>mysql</connector>
+			<host>localhost</host>
+			<port>3306</port>
+			<connector>mysql</connector>
+			<connectionType>jdbc</connectionType>
+			<schemaOptions>create</schemaOptions>
+		</destinationDatabase>
+	</databases>
+
+	<noark4Tables>
+		<arkiv>true</arkiv>
+		<arkivdel>true</arkivdel>
+		<ordningsprinsipp>true</ordningsprinsipp>
+		<ordningsverdi>true</ordningsverdi>
+		<noarksak>false</noarksak>
+		<journalpost>true</journalpost>
+	</noark4Tables>
+
+	<mappings>
+		<mapping>
+			<noark4Table>arkiv</noark4Table>
+			<!-- table names in some cases are going to be case sensitive -->			
+			<fromTable>arkiv</fromTable>
+			<toTable>fonds</toTable>
+			<sql>SELECT ar_arkiv, ar_betegn, ar_merknad From arkiv</sql>
+			<columns>
+				<column>
+					<fromCol>ar_betegn</fromCol>
+					<fromColType>string</fromColType>
+					<toCol>title</toCol>
+					<toColType>string</toColType>
+				</column>
+				<column>
+					<fromCol>ar_arkiv</fromCol>
+					<fromColType>string</fromColType>
+					<toCol>systemId</toCol>
+					<toColType>string</toColType>
+				</column>
+				<column>
+					<fromCol>ar_merknad</fromCol>
+					<fromColType>string</fromColType>
+					<toCol>description</toCol>
+					<toColType>string</toColType>
+				</column>								
+			</columns>
+		</mapping>
+
+	</mappings>
+</kdrs-toolbox-uttrekk>

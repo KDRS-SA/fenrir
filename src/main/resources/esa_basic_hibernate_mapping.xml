@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="no.arkivlab.n4ton5.models.n4.Arkiv" table="DGJHARKIV">
+		<meta attribute="class-description">This is a basic mapping of an ESA N4 ARKIV table
+			to a Noark 4 Entity
+		</meta>
+		<id name="id" type="int" column="id">
+			<generator class="native" />
+		</id>
+		<property name="AR_ARKIV" column="ARKIV" type="string" />
+		<property name="AR_BETEGN" column="BESKRIVELSE" type="string" />
+		<property name="AR_FRADATO" column="FRADATO" type="date" />
+		<property name="AR_TILDATO" column="TILDATO" type="date" />
+		<property name="AR_MERKNAD" column="MERKNAD" type="string" />
+	</class>
+
+	<class name="no.arkivlab.n4ton5.models.n4.Arkivdel" table="DELARKIV">
+		<meta attribute="class-description">This is a basic mapping of an ESA N4 ARKIVDEL
+			table to a Noark 4 Entity
+		</meta>
+		<id name="id" type="int" column="id">
+			<generator class="native" />
+		</id>
+
+		<property name="AD_ARKDEL" column="" type="string" />
+		<property name="AD_BETEGN" column="" type="string" />
+		<property name="AD_ARKIV" column="" type="string" />
+		<property name="AD_ASTATUS" column="" type="string" />
+		<property name="AD_PERIODE" column="" type="string" />
+		<property name="AD_PRIMNOK" column="" type="string" />
+		<property name="AD_BSKODE" column="" type="string" />
+		<property name="AD_FORTS" column="" type="string" />
+		<property name="AD_PAPIR" column="" type="string" />
+		<property name="AD_ELDOK" column="" type="string" />
+		<property name="AD_NUMSER" column="" type="string" />
+		<property name="AD_FRADATO" column="" type="string" />
+		<property name="AD_TILDATO" column="" type="string" />
+		<property name="AD_MERKNAD" column="" type="string" />
+		<property name="AD_KONTRAV" column="" type="string" />
+
+	</class>
+
+
+	<class name="no.arkivlab.n4ton5.models.n4.NoarkSak" table="DGJSMA">
+		<meta attribute="class-description">This is a basic mapping of an ESA N4 NOARKSAK
+			table to a Noark 4 Entity
+		</meta>
+		<id name="id" type="int" column="id">
+			<generator class="native" />
+		</id>
+
+		<property name="SA_ID" column="JOURAARNR" type="string" />
+		<property name="SA_SAAR" column="JOURAAR" type="string" />
+		<property name="SA_SEKNR" column="JOURNR" type="string" />
+		<property name="SA_PAPIR" column="PAPIR" type="string" />
+		<property name="SA_DATO" column="AAPNET" type="string" />
+		<property name="SA_TITTEL" column="INNH1" type="string" />
+		<property name="SA_U1" column="U1" type="string" />
+		<property name="SA_STATUS" column="STATUS" type="string" />
+		<property name="SA_ARKDEL" column="FRAARKDEL" type="string" />
+		<property name="SA_TYPE" column="" type="string" />
+		<property name="SA_ADMID" column="ADMID" type="string" />
+		<property name="SA_ANSVID" column="" type="string" />
+		<property name="SA_TGKODE" column="UNTOFF" type="string" />
+		<property name="SA_UOFF" column="HJEMMEL" type="string" />
+		<property name="SA_TGGRUPPE" column="GRUPPE" type="string" />
+
+	</class>
+
+
+
+
+</hibernate-mapping>

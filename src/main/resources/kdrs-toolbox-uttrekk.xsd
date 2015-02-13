@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:element name="kdrs-toolbox-uttrekk">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="projectType"/>
+                <xs:element ref="databases"/>
+                <xs:element ref="noark4Tables"/>
+                <xs:element ref="mappings"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="projectType" type="xs:string"/>
+    <xs:element name="databases">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="sourceDatabase"/>
+                <xs:element ref="destinationDatabase"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="sourceDatabase">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="username"/>
+                <xs:element ref="password"/>
+                <xs:element ref="database"/>
+                <xs:choice maxOccurs="unbounded">
+                    <xs:element ref="connector"/>
+                    <xs:element ref="host"/>
+                    <xs:element ref="port"/>
+                </xs:choice>
+                <xs:element ref="connectionType"/>
+                <xs:element ref="schemaOptions"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="destinationDatabase">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="username"/>
+                <xs:element ref="password"/>
+                <xs:element ref="database"/>
+                <xs:choice maxOccurs="unbounded">
+                    <xs:element ref="connector"/>
+                    <xs:element ref="host"/>
+                    <xs:element ref="port"/>
+                </xs:choice>
+                <xs:element ref="connectionType"/>
+                <xs:element ref="schemaOptions"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="noark4Tables">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="arkiv"/>
+                <xs:element ref="arkivdel"/>
+                <xs:element ref="ordningsprinsipp"/>
+                <xs:element ref="ordningsverdi"/>
+                <xs:element ref="noarksak"/>
+                <xs:element ref="journalpost"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="arkiv" type="xs:boolean"/>
+    <xs:element name="arkivdel" type="xs:boolean"/>
+    <xs:element name="ordningsprinsipp" type="xs:boolean"/>
+    <xs:element name="ordningsverdi" type="xs:boolean"/>
+    <xs:element name="noarksak" type="xs:boolean"/>
+    <xs:element name="journalpost" type="xs:boolean"/>
+    <xs:element name="mappings">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="mapping"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="mapping">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="noark4Table"/>
+                <xs:element ref="fromTable"/>
+                <xs:element ref="toTable"/>
+                <xs:element ref="sql"/>
+                <xs:element ref="columns"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="noark4Table" type="xs:string"/>
+    <xs:element name="fromTable" type="xs:string"/>
+    <xs:element name="toTable" type="xs:string"/>
+    <xs:element name="sql" type="xs:string"/>
+    <xs:element name="columns">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="column" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="column">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="fromCol"/>
+				<xs:element ref="fromColType"/>
+                <xs:element ref="toCol"/>
+                <xs:element ref="toColType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="fromCol" type="xs:string"/>
+    <xs:element name="toCol" type="xs:string"/>
+    <xs:element name="fromColType" type="xs:string"/>
+    <xs:element name="toColType" type="xs:string"/>
+    
+    <xs:element name="username" type="xs:NCName"/>
+    <xs:element name="password" type="xs:NCName"/>
+    <xs:element name="database" type="xs:NCName"/>
+    <xs:element name="connector" type="xs:NCName"/>
+    <xs:element name="host" type="xs:NCName"/>
+    <xs:element name="port" type="xs:integer"/>
+    <xs:element name="connectionType" type="xs:NCName"/>
+    <xs:element name="schemaOptions" type="xs:NCName"/>
+</xs:schema>
